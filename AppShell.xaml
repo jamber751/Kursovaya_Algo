@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="Kursovaya.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Kursovaya"
+    Shell.FlyoutBehavior="Flyout">
+
+    <Shell.ItemTemplate>
+        <DataTemplate>
+            <VerticalStackLayout Margin="20" Spacing="20">
+                <Grid ColumnDefinitions="3*,7*" ColumnSpacing="20">
+                    <Image Grid.Column="0" Source="{Binding FlyoutIcon}" HeightRequest="50"/>
+                    <Label Grid.Column="1" Text="{Binding Title}" HorizontalOptions="Center" VerticalOptions="Center"/>
+                </Grid>
+            </VerticalStackLayout>
+        </DataTemplate>
+    </Shell.ItemTemplate>
+
+    <FlyoutItem Title="Задание 2" FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent
+        Title="Задание 2"
+        ContentTemplate="{DataTemplate local:Task2}"
+        Route="Task2"
+        FlyoutIcon="dotnet_bot.png"/>
+
+        <ShellContent
+        Title="Задание 3"
+        ContentTemplate="{DataTemplate local:Task3}"
+        Route="Task3"
+        FlyoutIcon="dotnet_bot.png"/>
+
+    </FlyoutItem>
+</Shell>
+
+

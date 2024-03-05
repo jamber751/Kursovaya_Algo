@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Kursovaya.Task3">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            Margin="30">
+
+            <Frame>
+                <VerticalStackLayout Spacing="20">
+                    <Label Text="Количество операций" FontSize="30" HorizontalOptions="Center"/>
+                    <Button Grid.Column="1" x:Name="zadachiCountButton" Text="0"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <VerticalStackLayout Spacing="25">
+                <Button x:Name="startButton" Text="Начало" Clicked="startButton_Clicked"/>
+                <Button x:Name="endButton" Text="Конец" Clicked="endButton_Clicked"/>
+
+                <Grid ColumnDefinitions="5*, 5*" RowDefinitions="Auto, Auto" RowSpacing="20" ColumnSpacing="10">
+                    <Button Grid.Column="0" Grid.Row="0" x:Name="p1Button"/>
+                    <Button Grid.Column="1" Grid.Row="0" x:Name="p2Button"/>
+                    <Label Grid.Column="0" Grid.Row="1" x:Name="q1" HorizontalOptions="Center"/>
+                    <Label Grid.Column="1" Grid.Row="1" x:Name="q2" HorizontalOptions="Center"/>
+                </Grid>
+            </VerticalStackLayout>
+
+            <Label x:Name="vremyaOzhidaniya" HorizontalOptions="Center"/>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
+
