@@ -6,7 +6,9 @@
     <ScrollView>
         <VerticalStackLayout
             Spacing="25"
-            Padding="30,0">
+            Padding="30,0"
+            Margin="30">
+
             <Frame>
                 <VerticalStackLayout Spacing="20">
                     <Entry x:Name="labelVyrazhenie" Placeholder="Выражение"/>
