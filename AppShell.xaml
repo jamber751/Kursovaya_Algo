@@ -30,7 +30,29 @@
         Route="Task3"
         FlyoutIcon="dotnet_bot.png"/>
 
+        <ShellContent
+        Title="Задание 4"
+        ContentTemplate="{DataTemplate local:Task4}"
+        Route="Task4"
+        FlyoutIcon="dotnet_bot.png"/>
+
+        <ShellContent
+        Title="Задание 5"
+        ContentTemplate="{DataTemplate local:Task5}"
+        Route="Task5"
+        FlyoutIcon="dotnet_bot.png"/>
+
+        <ShellContent
+        Title="Задание 6"
+        ContentTemplate="{DataTemplate local:Task6}"
+        Route="Task6"
+        FlyoutIcon="dotnet_bot.png"/>
+
+         <ShellContent
+        Title="Задание 7"
+        ContentTemplate="{DataTemplate local:Task7}"
+        Route="Task7"
+        FlyoutIcon="dotnet_bot.png"/>
+
     </FlyoutItem>
 </Shell>
-
-

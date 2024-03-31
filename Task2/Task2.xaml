@@ -13,8 +13,8 @@
                 <VerticalStackLayout Spacing="20">
                     <Entry x:Name="labelVyrazhenie" Placeholder="Выражение"/>
                     <Button x:Name="calculateButton" Clicked="calculateButton_Clicked" Text="Рассчитать"/>
-                    <Grid ColumnDefinitions="5*, 5*" RowDefinitions="Auto, Auto" ColumnSpacing="10" RowSpacing="10">
-                        <Label Grid.Column="0" Grid.Row="0" Text="Выражение в постфиксной форме"/>
+                    <Grid ColumnDefinitions="4*, 6*" RowDefinitions="Auto, Auto" ColumnSpacing="10" RowSpacing="10">
+                        <Label Grid.Column="0" Grid.Row="0" Text="Постфиксная форма"/>
                         <Label Grid.Column="1" Grid.Row="0" x:Name="labelPostfix" />
                         <Label Grid.Column="0" Grid.Row="1" Text="Результат"/>
                         <Label Grid.Column="1" Grid.Row="1" x:Name="labelResult"/>

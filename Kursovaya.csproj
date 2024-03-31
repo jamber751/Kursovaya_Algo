@@ -55,4 +55,10 @@
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <None Remove="Task7\" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="Task7\" />
+	</ItemGroup>
 </Project>
