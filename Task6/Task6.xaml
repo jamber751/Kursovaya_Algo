@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Kursovaya.Task6"
+             Title="Task6">
+    <VerticalStackLayout Margin="30" Padding="20" Spacing="30">
+        <Button  x:Name="generateButton" Clicked="generateButton_Clicked" Text="Генерация"/>
+        <Button  x:Name="sortButton" Clicked="sortButton_Clicked" Text="Сортировка"/>
+
+        <ListView x:Name="peopleList">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <VerticalStackLayout>
+                        <Label Text="{Binding name}"/>
+                        <Label Text="{Binding height}"/>
+                    </VerticalStackLayout>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Label x:Name="labelAnswer" HorizontalOptions="Center"/>
+    </VerticalStackLayout>
+</ContentPage>
