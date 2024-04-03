@@ -4,9 +4,6 @@
              x:Class="Kursovaya.Task5"
              Title="Task5">
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <Button Text="Построить дерево" x:Name="startButton" Clicked="startButton_Clicked"/>
     </VerticalStackLayout>
 </ContentPage>
