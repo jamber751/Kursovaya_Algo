@@ -2,31 +2,29 @@
 
 public partial class Task5 : ContentPage
 {
+    TreeDrawable treeDrawable;
+
     public Task5()
     {
         InitializeComponent();
+        treeDrawable = (TreeDrawable)treeCanvas.Drawable;
     }
 
-    Random rnd = new Random();
-    static int SIZE = 20;
-    int[] numbers = new int[SIZE];
-    AVL tree = new AVL();
-
-    public void GenerateNumbers(int size)
+    void addButton_Clicked(System.Object sender, System.EventArgs e)
     {
-        for (int i = 0; i < SIZE; i++)
-        {
-            numbers[i] = rnd.Next(1, 20);
-        }
+        treeDrawable.Tree.Add(int.Parse(valueEntry.Text));
+        treeCanvas.Invalidate();
+        valueEntry.Text = String.Empty;
+
+        treeDrawable.countNodes = 0;
+        treeDrawable.Count(treeDrawable.Tree.Root);
+        countLabel.Text = treeDrawable.countNodes.ToString();
     }
 
-    void startButton_Clicked(System.Object sender, System.EventArgs e)
+    void clearButton_Clicked(System.Object sender, System.EventArgs e)
     {
-        foreach (int number in numbers)
-        {
-            tree.Add(number);
-        }
+        treeDrawable.Tree = new AVL();
+        treeCanvas.Invalidate();
+        countLabel.Text = string.Empty;
     }
-
-
 }

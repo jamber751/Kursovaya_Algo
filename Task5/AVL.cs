@@ -1,29 +1,31 @@
 ﻿namespace Kursovaya
 {
-    class AVL
+
+    public class AVLNode
+
     {
-        class Node
+        public int Value;
+        public AVLNode Left;
+        public AVLNode Right;
+
+        public AVLNode(int value)
         {
-            public int Value;
-            public Node Left;
-            public Node Right;
-
-            public Node(int value)
-            {
-                Value = value;
-            }
+            Value = value;
         }
+    }
 
-        Node Root;
+    public class AVL
+    {
+        public AVLNode Root;
 
         public AVL()
         {
             Root = null;
         }
 
-        public void Add(int value)
+        public void Add(int data)
         {
-            Node newItem = new Node(value);
+            AVLNode newItem = new AVLNode(data);
             if (Root == null)
             {
                 Root = newItem;
@@ -34,105 +36,99 @@
             }
         }
 
-        private Node RecursiveInsert(Node currentNode, Node newNode)
+        private AVLNode RecursiveInsert(AVLNode current, AVLNode n)
         {
-            if (currentNode == null)
+            if (current == null)
             {
-                currentNode = newNode;
-                return currentNode;
+                current = n;
+                return current;
             }
-            else if (newNode.Value < currentNode.Value)
+            else if (n.Value < current.Value)
             {
-                currentNode.Left = RecursiveInsert(currentNode.Left, newNode);
-                currentNode = Balance(currentNode);
+                current.Left = RecursiveInsert(current.Left, n);
+                current = Balance(current);
             }
-            else if (newNode.Value > currentNode.Value)
+            else if (n.Value > current.Value)
             {
-                currentNode.Right = RecursiveInsert(currentNode.Right, newNode);
-                currentNode = Balance(currentNode);
+                current.Right = RecursiveInsert(current.Right, n);
+                current = Balance(current);
             }
-            return currentNode;
+            return current;
         }
 
-        private Node Balance(Node currentNode)
+        private AVLNode Balance(AVLNode current)
         {
-            int b_factor = BalanceFactor(currentNode);
+            int b_factor = BalanceFactor(current);
             if (b_factor > 1)
             {
-                if (BalanceFactor(currentNode.Left) > 0)
+                if (BalanceFactor(current.Left) > 0)
                 {
-                    currentNode = RotateLL(currentNode);
+                    current = RotateLL(current);
                 }
                 else
                 {
-                    currentNode = RotateLR(currentNode);
+                    current = RotateLR(current);
                 }
             }
             else if (b_factor < -1)
             {
-                if (BalanceFactor(currentNode.Right) > 0)
+                if (BalanceFactor(current.Right) > 0)
                 {
-                    currentNode = RotateRL(currentNode);
+                    current = RotateRL(current);
                 }
                 else
                 {
-                    currentNode = RotateRR(currentNode);
+                    current = RotateRR(current);
                 }
             }
-            return currentNode;
+            return current;
         }
 
-        private int Height(Node currentNode)
+        private int GetHeight(AVLNode current)
         {
             int height = 0;
-            if (currentNode != null)
+            if (current != null)
             {
-                int l = Height(currentNode.Left);
-                int r = Height(currentNode.Right);
-                int m = Math.Max(l, r);
-                height = m + 1;
+                int left = GetHeight(current.Left);
+                int right = GetHeight(current.Right);
+                height = Math.Max(left, right) + 1;
             }
             return height;
         }
 
-        private int BalanceFactor(Node currentNode)
+        private int BalanceFactor(AVLNode current)
         {
-            int l = Height(currentNode.Left);
-            int r = Height(currentNode.Right);
+            int l = GetHeight(current.Left);
+            int r = GetHeight(current.Right);
             int b_factor = l - r;
             return b_factor;
         }
 
-        private Node RotateRR(Node parent)
+        private AVLNode RotateRR(AVLNode parent)
         {
-            Node pivot = parent.Right;
+            AVLNode pivot = parent.Right;
             parent.Right = pivot.Left;
             pivot.Left = parent;
             return pivot;
         }
-
-        private Node RotateLL(Node parent)
+        private AVLNode RotateLL(AVLNode parent)
         {
-            Node pivot = parent.Left;
+            AVLNode pivot = parent.Left;
             parent.Left = pivot.Right;
             pivot.Right = parent;
             return pivot;
         }
-
-        private Node RotateLR(Node parent)
+        private AVLNode RotateLR(AVLNode parent)
         {
-            Node pivot = parent.Left;
+            AVLNode pivot = parent.Left;
             parent.Left = RotateRR(pivot);
             return RotateLL(parent);
         }
-
-        private Node RotateRL(Node parent)
+        private AVLNode RotateRL(AVLNode parent)
         {
-            Node pivot = parent.Right;
+            AVLNode pivot = parent.Right;
             parent.Right = RotateLL(pivot);
             return RotateRR(parent);
         }
-
     }
 }
-
