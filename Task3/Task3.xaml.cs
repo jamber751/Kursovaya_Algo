@@ -115,7 +115,7 @@ public partial class Task3 : ContentPage
                     stopProccessors();
                     return;
                 }
-                processor2Timer.Change(0, Timeout.Infinite);
+                processor1Timer.Change(0, Timeout.Infinite);
                 return;
             }
 
