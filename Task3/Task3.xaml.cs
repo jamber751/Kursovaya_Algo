@@ -64,11 +64,9 @@ public partial class Task3 : ContentPage
             await MainThread.InvokeOnMainThreadAsync(() =>
             {
                 int type = rnd.Next(0, 101);
-                if (type < 15) type = 1;
-                else type = 2;
-
-                Zadacha newTask = new Zadacha() { Id = currentId, Type = type, ExecTime = rnd.Next(processorDelays.Item1, processorDelays.Item2) };
-
+                type = type < 15 ? 1 : 2;
+                Zadacha newTask = new Zadacha(currentId, type,
+                    rnd.Next(processorDelays.Item1, processorDelays.Item2));
                 if (newTask.Type == 1)
                 {
                     queue1.Enqueue(newTask);
@@ -87,11 +85,13 @@ public partial class Task3 : ContentPage
                         printQueue(q1, queue1);
                     }
                 }
-                generatorTimer.Change(rnd.Next(generatorDelays.Item1, generatorDelays.Item2), Timeout.Infinite);
+                generatorTimer.Change(rnd.Next(generatorDelays.Item1, generatorDelays.Item2),
+                    Timeout.Infinite);
                 currentId++;
             });
         }
     }
+
 
     public void stopProccessors()
     {
@@ -108,14 +108,14 @@ public partial class Task3 : ContentPage
         await MainThread.InvokeOnMainThreadAsync(() =>
         {
             p1Button.Text = String.Empty;
-            if (queue1.Count == 0 && queue2.Count == 0)
+            if (queue1.Count == 0)
             {
-                if (!isOpen)
+                if (!isOpen && queue2.Count == 0)
                 {
                     stopProccessors();
                     return;
                 }
-                processor1Timer.Change(0, Timeout.Infinite);
+                processor2Timer.Change(0, Timeout.Infinite);
                 return;
             }
 
@@ -158,4 +158,5 @@ public partial class Task3 : ContentPage
             processor2Timer.Change(zadacha.ExecTime, Timeout.Infinite);
         });
     }
+
 }

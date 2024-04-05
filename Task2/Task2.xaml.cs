@@ -60,14 +60,8 @@ public partial class Task2 : ContentPage
 
         foreach (Char c in s)
         {
-            if (Char.IsDigit(c))
-            {
-                result += c;
-            }
-            else if (c == '(')
-            {
-                stack.Push(c);
-            }
+            if (Char.IsDigit(c)) result += c;
+            else if (c == '(') stack.Push(c);
             else if (c == ')')
             {
                 while (stack.Count > 0 && stack.Peek() != '(')
@@ -86,10 +80,7 @@ public partial class Task2 : ContentPage
             }
         }
 
-        while (stack.Count > 0)
-        {
-            result += stack.Pop();
-        }
+        while (stack.Count > 0) result += stack.Pop();
         return result;
     }
 
