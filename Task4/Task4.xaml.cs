@@ -35,6 +35,13 @@ public partial class Task4 : ContentPage
         return count;
     }
 
+
+    public bool isQ(int number)
+    {
+        while (number > 10) number /= 10;
+        return number == 3;
+    }
+
     public void removeT()
     {
         if (list.Length == 0) return;
@@ -55,12 +62,6 @@ public partial class Task4 : ContentPage
         {
             list.RemoveFirst();
         }
-    }
-
-    public bool isQ(int number)
-    {
-        while (number > 10) number /= 10;
-        return number == 3;
     }
 
     public bool isT(int number)
@@ -91,7 +92,7 @@ public partial class Task4 : ContentPage
 
             if (Q && T)
             {
-                span.TextColor = Colors.Yellow;
+                span.TextColor = Colors.DarkGoldenrod;
             }
             else if (Q)
             {

@@ -5,9 +5,22 @@ public partial class Task7 : ContentPage
     public Task7()
     {
         InitializeComponent();
+        volumes.Add(12);
+        volumes.Add(1);
+        volumes.Add(2);
+        volumes.Add(1);
+        volumes.Add(4);
+
+        prices.Add(4);
+        prices.Add(2);
+        prices.Add(2);
+        prices.Add(1);
+        prices.Add(10);
+        printList();
     }
 
     static int V;
+    static int S;
     static List<int> volumes = new List<int>();
     static List<int> prices = new List<int>();
 
@@ -33,6 +46,26 @@ public partial class Task7 : ContentPage
         massiv[i] = false;
         BackPack(i + 1, currentVolume, currentProfit, massiv);
     }
+
+    //static bool BackPack2(int i, int currentVolume, int currentProfit, bool[] massiv)
+    //{
+    //    massiv[i] = true;
+
+    //    if (currentVolume + volumes[i] <= V && currentProfit + prices[i] >= S)
+    //    {
+    //        Array.Copy(massiv, bestSolution, massiv.Length);
+    //        return true;
+    //    }
+
+    //    if (i == massiv.Length - 1) return false;
+
+    //    if (BackPack2(i + 1, currentVolume + volumes[i], currentProfit + prices[i], massiv)) return true;
+    //    else
+    //    {
+    //        massiv[i] = false;
+    //        return BackPack2(i + 1, currentVolume, currentProfit, massiv);
+    //    }
+    //}
 
 
     void calcualteButton_Clicked(System.Object sender, System.EventArgs e)
@@ -115,7 +148,6 @@ public partial class Task7 : ContentPage
     {
         isFinished = false;
         labelAnswer.Text = String.Empty;
-
         int value = (int)e.NewValue;
         sliderValue.Text = value.ToString();
     }

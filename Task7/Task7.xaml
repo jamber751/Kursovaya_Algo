@@ -8,8 +8,7 @@
 
         <Label Text="Объем рюкзака" HorizontalOptions="Center"/>
         <VerticalStackLayout>
-            <Slider Minimum="1" Maximum="100" ValueChanged="Slider_ValueChanged"/>
-            <Label x:Name="sliderValue" HorizontalOptions="Center" Text="1"/>
+            <Label x:Name="sliderValue" HorizontalOptions="Center" Text="15"/>
         </VerticalStackLayout>
 
         <Label Text="Доступные вещи" HorizontalOptions="Center"/>
